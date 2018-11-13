@@ -12,7 +12,7 @@
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password"></property>
 		
-		<mapping class="br.com.promove.ODG.entidades.Categorias" />
+		<mapping class="br.com.DragonsGamers.ODG.entidades.Categorias" />
 
 	</session-factory>
 
