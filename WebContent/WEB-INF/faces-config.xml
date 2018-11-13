@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/pages/error.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>paginaErro</from-outcome>
+			<to-view-id>/pages/paginaErro.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+	<!-- ################################ Pinguço ######################### -->
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>pinguco</from-outcome>
+			<to-view-id>/pages/pinguco.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- ################################ Menu ######################### -->
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>menu</from-outcome>
+			<to-view-id>/pages/menu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+</faces-config>
