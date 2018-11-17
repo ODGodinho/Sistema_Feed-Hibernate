@@ -2,7 +2,7 @@ package br.com.DragonsGamers.ODG.util;
 
 import org.hibernate.cfg.Configuration;
 
-import br.com.DragonsGamers.ODG.entidades.Produtos;
+import br.com.DragonsGamers.ODG.entidades.Marca;
 
 public class DataGeneration {
 
@@ -10,7 +10,7 @@ public class DataGeneration {
 
 		new Configuration()
 			.configure("hibernate.cfg.xml")
-			.addAnnotatedClass(Produtos.class)
+			.addAnnotatedClass(Marca.class)
 			.buildSessionFactory();
 
 		System.exit(1);

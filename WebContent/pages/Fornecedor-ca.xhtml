@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://richfaces.org/a4j">
+
+<h:head>
+	<link type="text/css" rel="stylesheet"
+		href="../style/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link type="text/css" rel="stylesheet" href="../style/estilo.css" />
+</h:head>
+<h:body>
+
+	<ui:include src="/pages/includes/menu.xhtml" />
+
+
+	<div class="container">
+
+		<h:form class="mt-5">
+			<p:growl id="growl" life="3000" />
+
+			<p:tab id="personal" title="Personal">
+				<p:panel header="Personal Details">
+					<div class="float-right">
+						<i class="fa fa-users fa-5x mt-4" aria-hidden="true"></i> <br />
+					</div>
+					<div class="row">
+						<div class="col-6">
+							<h:outputText value="Nome do Fornecedor" /> <span class='text-danger'>*</span>
+							<p:inputText value="#{fornecedorMB.fornecedor.nomeFornecedor}"
+								required="true" label="Nome do Fornecedor"
+								styleClass="form-control" maxlength="50" size="50" />
+						</div>
+						<div class="col-6">
+							<h:outputText value="Contato do Fornecedor " />  <span class='text-danger'>*</span>
+							<p:inputText value="#{fornecedorMB.fornecedor.contatoFornecedor}"
+								required="true" label="Contato do Fornecedor"
+								styleClass="form-control telefonemask" maxlength="50" size="50" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4">
+							<h:outputText value="Nome do Contato " />  <span class='text-danger'>*</span>
+							<p:inputText value="#{fornecedorMB.fornecedor.nomeContatoFornecedor}"
+								required="true" label="Nome de Contato do Fornecedor"
+								styleClass="form-control" maxlength="50" size="50" />
+						</div>
+						<div class="col-4">
+							<h:outputText value="Nome Fantasia " />
+							<p:inputText value="#{fornecedorMB.fornecedor.nomeFantasiaFornecedor}"
+								 label="Nome Fantasia do Fornecedor"
+								styleClass="form-control" maxlength="50" size="50" />
+						</div>
+						<div class="col-4">
+							<h:outputText value="Email do fornecedor  " /> <span class='text-danger'>*</span>
+							<p:inputText value="#{fornecedorMB.fornecedor.emailFornecedor}"
+								label="Email do Fornecedor" type="mail" required="true"
+								styleClass="form-control" maxlength="50" size="50" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2">
+							<h:outputText value="CEP Fornecedor" />
+							<p:inputText
+								 label="CEP do Fornecedor"
+								styleClass="form-control cep" maxlength="50" size="50" />
+						</div>
+						<div class="col-3">
+							<h:outputText value="Rua Fornecedor" />
+							<p:inputText value="#{fornecedorMB.fornecedor.ruaFornecedor}"
+								 label="Rua do Fornecedor"
+								styleClass="form-control ruacep" maxlength="50" size="50" />
+						</div>
+						<div class="col-2">
+							<h:outputText value="Numero Fornecedor" />
+							<p:inputText value="#{fornecedorMB.fornecedor.numeroFornecedor}"
+								 label="Numero Fornecedor"
+								styleClass="form-control numerocep" maxlength="50" size="50" />
+						</div>
+						<div class="col-5">
+							<h:outputText value="Bairro Fornecedor" />
+							<p:inputText value="#{fornecedorMB.fornecedor.bairroFornecedor}"
+								 label="Bairro do Fornecedor"
+								styleClass="form-control bairrocep" maxlength="50" size="50" />
+								<br/><br/><br/>
+						</div>
+					</div>
+					<h5 class="cidadecep"></h5>
+					<div class="float-right">
+						<p:commandButton value="Gravar" update="growl"
+						onclick="startLoad()"
+							onsuccess="setTimeout(()=>window.location.href='Fornecedores.xhtml', 2000);"
+							actionListener="#{fornecedorMB.gravar}"
+							styleClass="ui-priority-primary" />
+					</div>
+				</p:panel>
+
+			</p:tab>
+
+		</h:form>
+	</div>
+	
+	<ui:include src="/pages/includes/scripts.xhtml" />
+</h:body>
+</html>

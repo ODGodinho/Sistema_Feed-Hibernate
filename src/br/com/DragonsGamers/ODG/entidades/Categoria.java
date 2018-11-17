@@ -10,7 +10,7 @@ import br.com.DragonsGamers.ODG.util.GenericTable;
 
 @Entity
 @Table(name = "sf_categoria")
-public class Categorias extends GenericTable<Categorias> {
+public class Categoria extends GenericTable<Categoria> {
 
 	@Id
 	@GeneratedValue
@@ -18,22 +18,21 @@ public class Categorias extends GenericTable<Categorias> {
 	public int id_categoria;
 
 	@Column(name = "nome_categoria")
-	public String nome_categoria;
+	public String nome;
 
-	public Categorias() {
+	public Categoria() {
 	}
 
-	public Categorias(String nomeCategoria) {
-		this.nome_categoria = nomeCategoria;
+	public Categoria(String nomeCategoria) {
+		this.nome = nomeCategoria;
 	}
 
-	public String getNomeCategoria() {
-		return this.nome_categoria;
+	public String getNome() {
+		return nome;
 	}
 
-	public Categorias setNomeCategoria(String nomeCategoria) {
-		this.nome_categoria = nomeCategoria;
-		return this;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	@Override
@@ -42,14 +41,14 @@ public class Categorias extends GenericTable<Categorias> {
 	}
 
 	@Override
-	public Categorias setID(int ID) {
+	public Categoria setID(int ID) {
 		this.id_categoria = ID;
 		return this;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Categorias [id_categoria=" + id_categoria + ", nome_categoria=" + nome_categoria + "]";
+		return "Categoria [id_categoria=" + id_categoria + ", nome=" + nome + "]";
 	}
 
 }

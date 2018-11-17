@@ -10,42 +10,40 @@
 </style>
 </h:head>
 <h:body>
+	<div id="loadSpinner" class="text-center">
+		<div style="vertical-align: middle; height: 100%; display: table-cell">
+			<i class="fa fa-refresh fa-spin fa-5x fa-fw text-white"></i> <span
+				class="text-white d-block fa-1x">Carreganduu os trem...</span>
+		</div>
+	</div>
 	<h:form>
 		<p:growl id="messages" />
 
 		<p:menubar>
 			<p:submenu label="Produtos" icon="fa fa-cart-plus">
-				<p:menuitem value="Listar Produtos" url="#" />
+				<p:menuitem value="Listar Produtos" url="Produtos.xhtml" />
 				<p:separator />
-				<p:menuitem value="Cadastrar Produtos" url="#" />
+				<p:menuitem value="Novo Produto" url="Produto-ca.xhtml" />
 			</p:submenu>
 
 			<p:submenu label="Categorias" icon="pi pi-pencil">
-				<p:menuitem value="Listar Categorias" url="Categorias" icon="pi pi-angle-double-left" />
-				<p:menuitem value="Cadastrar Categorias" url="#" icon="pi pi-angle-double-right" />
+				<p:menuitem value="Listar Categorias" url="Categorias.xhtml"
+					icon="pi pi-angle-double-left" />
+				<p:separator />
+				<p:menuitem value="Nova Categoria" url="Categoria-ca.xhtml"
+					icon="pi pi-angle-double-right" />
 			</p:submenu>
 
-			<p:submenu label="Help" icon="pi pi-question">
-				<p:menuitem value="Contents" url="#" />
-				<p:submenu label="Search" icon="pi pi-search">
-					<p:submenu label="Text">
-						<p:menuitem value="Workspace" url="#" />
-					</p:submenu>
-					<p:menuitem value="File" url="#" />
-				</p:submenu>
+			<p:submenu label="Fornecedores" icon="pi pi-users">
+				<p:menuitem value="Listar Fornecedores" url="Fornecedores.xhtml" />
+				<p:separator />
+				<p:menuitem value="Novo Fornecedor" url="Fornecedor-ca.xhtml" />
 			</p:submenu>
 
-			<p:submenu label="Actions" icon="pi pi-cog">
-				<p:submenu label="Ajax" icon="pi pi-refresh">
-					<p:menuitem value="Save" action="#{menuView.save}"
-						icon="pi pi-save" update="messages" />
-					<p:menuitem value="Update" action="#{menuView.update}"
-						icon="pi pi-refresh" update="messages" />
-				</p:submenu>
-				<p:submenu label="Non-Ajax" icon="pi pi-clone">
-					<p:menuitem value="Delete" action="#{menuView.delete}"
-						icon="pi pi-times" update="messages" ajax="false" />
-				</p:submenu>
+			<p:submenu label="Marcas" icon="pi pi-question">
+				<p:menuitem value="Listar Marcas" url="Marcas.xhtml" />
+				<p:separator />
+				<p:menuitem value="Nova Marca" url="Marca-ca.xhtml" />
 			</p:submenu>
 
 		</p:menubar>

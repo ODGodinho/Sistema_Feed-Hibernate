@@ -24,11 +24,11 @@
 
 			<div class="d-block" style="height: 50px">
 				<p:commandButton value="Atualizar" id="ajax" update="growl,tbl"
-					actionListener="#{categoriaMB.alterar}"
+					actionListener="#{marcaMB.alterar}"
 					styleClass="ui-priority-primary float-right" />
 			</div>
 			<p:dataTable id="tbl" var="retorno"
-				value="#{categoriaMB.getCategorias()}"
+				value="#{marcaMB.getMarcas()}"
 				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 				paginator="true" rows="5" style="margin-bottom:20px">
 
@@ -41,9 +41,9 @@
 
 				<p:column colspan="8">
 					<f:facet name="header">
-						<h:outputText value="Nome da Categoria" />
+						<h:outputText value="Nome da Marca" />
 					</f:facet>
-					<h:inputText value="#{retorno.nome}" class="form-control" />
+					<h:inputText value="#{retorno.nomeMarca}" class="form-control" />
 				</p:column>
 
 				<p:column colspan="1">
@@ -51,7 +51,7 @@
 						<h:outputText value="Ações" />
 					</f:facet>
 					<p:commandButton styleClass="btn btn-danger" update="tbl"
-						actionListener="#{categoriaMB.excluir}"
+						actionListener="#{marcaMB.excluir}"
 						onclick="startLoad()"
 						oncomplete="endLoad()" icon="fa fa-trash"
 						title="View">

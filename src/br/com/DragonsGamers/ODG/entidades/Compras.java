@@ -31,7 +31,7 @@ public class Compras extends GenericTable<Compras> {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_produto")
 	@Column(name = "id_produto")
-	private Produtos sfProdutos;
+	private Produto sfProdutos;
 
 	@Column(name = "valor_compra", precision=2)
 	private BigDecimal valor_compra;
@@ -42,7 +42,7 @@ public class Compras extends GenericTable<Compras> {
 	public Compras() {
 	}
 	
-	public Compras(Fornecedor sfFornecedor, Produtos sfProdutos, BigDecimal valorCompra, int quantidadeCompra) {
+	public Compras(Fornecedor sfFornecedor, Produto sfProdutos, BigDecimal valorCompra, int quantidadeCompra) {
 		this.sfFornecedor = sfFornecedor;
 		this.sfProdutos = sfProdutos;
 		this.valor_compra = valorCompra;
@@ -68,11 +68,11 @@ public class Compras extends GenericTable<Compras> {
 		this.sfFornecedor = sfFornecedor;
 	}
 
-	public Produtos getSfProdutos() {
+	public Produto getSfProdutos() {
 		return this.sfProdutos;
 	}
 
-	public void setSfProdutos(Produtos sfProdutos) {
+	public void setSfProdutos(Produto sfProdutos) {
 		this.sfProdutos = sfProdutos;
 	}
 

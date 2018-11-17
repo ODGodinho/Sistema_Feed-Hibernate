@@ -1,11 +1,11 @@
 package br.com.DragonsGamers.ODG.dao;
 
-import br.com.DragonsGamers.ODG.entidades.Produtos;
+import br.com.DragonsGamers.ODG.entidades.Produto;
 
-public class ProdutosDAO extends GenericDAO<Produtos>{
+public class ProdutosDAO extends GenericDAO<Produto>{
 
 	public ProdutosDAO() {
-		super(Produtos.class);
+		super(Produto.class);
 	}
 
 }

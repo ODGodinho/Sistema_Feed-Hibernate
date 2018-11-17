@@ -21,7 +21,7 @@ public class Vendas extends GenericTable<Vendas> {
 	
 	@ManyToOne
 	@JoinColumn(name="id_produto")
-	private Produtos sfProdutos;
+	private Produto sfProdutos;
 	
 	@Column(name="data_venda")
 	private Date data_venda;
@@ -35,7 +35,7 @@ public class Vendas extends GenericTable<Vendas> {
 	public Vendas() {
 	}
 
-	public Vendas(int id_venda, Produtos sfProdutos, Date dataVenda, BigDecimal valorVenda, int quantidadeVenda) {
+	public Vendas(int id_venda, Produto sfProdutos, Date dataVenda, BigDecimal valorVenda, int quantidadeVenda) {
 		this.id_venda = id_venda;
 		this.sfProdutos = sfProdutos;
 		this.data_venda = dataVenda;
@@ -43,11 +43,11 @@ public class Vendas extends GenericTable<Vendas> {
 		this.quantidade_venda = quantidadeVenda;
 	}
 
-	public Produtos getSfProdutos() {
+	public Produto getSfProdutos() {
 		return this.sfProdutos;
 	}
 
-	public Vendas setSfProdutos(Produtos sfProdutos) {
+	public Vendas setSfProdutos(Produto sfProdutos) {
 		this.sfProdutos = sfProdutos;
 		return this;
 	}

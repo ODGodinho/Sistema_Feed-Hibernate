@@ -40,7 +40,7 @@ public class GenericDAO<T extends GenericTable<?>> implements DAOs<T> {
 	@Override
 	public List<T> recuperarTodos() {
 		s = HibernateUtil.getSession();
-		List<T> results = s.createQuery("FROM " + c.getName(), c).getResultList();
+		List<T> results = s.createQuery("FROM " + c.getName(),c).list();
 		finalizarOperacao();
 		return results;
 	}

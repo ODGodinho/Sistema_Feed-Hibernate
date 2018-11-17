@@ -11,8 +11,8 @@ import org.hibernate.annotations.ColumnDefault;
 public abstract class GenericTable<T>{
 	
 	@ColumnDefault("CURRENT_TIMESTAMP")
-	@Column(name="data_criacao",nullable=false)
-	private Date data_criacao;
+	@Column(name="data_criacao",nullable=true)
+	private Date data_criacao = new Date();
 	
 	@Column(name="data_atualizacao")
 	private Date data_atualizacao;
@@ -22,10 +22,9 @@ public abstract class GenericTable<T>{
 	}
 
 
-	@SuppressWarnings("unchecked")
-	public T setCriacao(Date data_criacao) {
+	public GenericTable<T> setCriacao(Date data_criacao) {
 		this.data_criacao = data_criacao;
-		return (T) this;
+		return this;
 	}
 
 	public Date getAtualizacao() {
@@ -39,9 +38,7 @@ public abstract class GenericTable<T>{
 	}
 	
 	public abstract int getID();
-	public abstract T setID(int ID);
-
-	
+	public abstract T setID(int ID);	
 	
 	
 	

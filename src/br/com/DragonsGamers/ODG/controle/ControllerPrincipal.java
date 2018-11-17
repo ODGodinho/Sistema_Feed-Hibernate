@@ -1,19 +1,13 @@
 package br.com.DragonsGamers.ODG.controle;
 
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
-import br.com.DragonsGamers.ODG.dao.GenericDAO;
-import br.com.DragonsGamers.ODG.entidades.Categorias;
-
 @ManagedBean
-public class ControlerPrincipal {
+public class ControllerPrincipal {
 
-	public List<Categorias> categorias;
 	
 	@PostConstruct
 	public void init() {
@@ -25,11 +19,5 @@ public class ControlerPrincipal {
 		HttpServletRequest a = (HttpServletRequest) ctx.getExternalContext().getRequest();
 		
 		return a.getRequestURI();
-	}
-	
-	public List<Categorias> getCategorias() {
-		GenericDAO<Categorias> dao = new GenericDAO<Categorias>(Categorias.class);
-		categorias = dao.recuperarTodos();
-		return categorias;
 	}
 }

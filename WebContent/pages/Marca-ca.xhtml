@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<link type="text/css" rel="stylesheet"
+		href="../style/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link type="text/css" rel="stylesheet" href="../style/estilo.css" />
+</h:head>
+<h:body>
+
+	<ui:include src="/pages/includes/menu.xhtml" />
+
+
+	<div class="container">
+
+		<h:form class="mt-5">
+			<p:growl id="growl" life="1000" />
+			
+			<p:tab id="personal" title="Personal">
+				<p:panel header="Personal Details">
+					<p:messages />
+					<div class="row">
+						<div class="col-6">
+							<br />
+							<h:outputText value="Nome da Marca " />  <span class='text-danger float-left'>*</span>
+							<p:inputText value="#{marcaMB.marca.nomeMarca}"
+								required="true" label="Nome da Marca " styleClass="form-control" maxlength="50" size="50" />
+						</div>
+						<div class="col-6">
+							<p:column>
+								<i class="fa fa-superpowers fa-5x" aria-hidden="true"></i>
+								<br /><br />
+							</p:column>
+						</div>
+						
+					</div>
+					<div class="float-right">
+						<p:commandButton value="Gravar" update="growl"
+							onclick="startLoad()" oncomplete="endLoad()"
+							actionListener="#{marcaMB.gravar}"
+							styleClass="ui-priority-primary" />
+					</div>
+				</p:panel>
+
+			</p:tab>
+
+		</h:form>
+	</div>
+
+	<ui:include src="/pages/includes/scripts.xhtml" />
+</h:body>
+</html>

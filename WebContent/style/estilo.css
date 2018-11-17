@@ -4,3 +4,17 @@ body {
 	font-size: 14px;
 }
 
+.ui-state-hover{
+	font-weight: 100 !important;
+}
+
+#loadSpinner{
+	
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 1000;
+	background: rgba(0,0,0,0.4);
+	display: table;
+	
+}

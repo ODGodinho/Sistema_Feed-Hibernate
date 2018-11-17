@@ -18,17 +18,17 @@
 	<ui:include src="/pages/includes/menu.xhtml" />
 	<div class="container">
 		<h:form class="mt-5">
-			
+
 
 			<p:growl id="growl" life="2000" />
 
 			<div class="d-block" style="height: 50px">
 				<p:commandButton value="Atualizar" id="ajax" update="growl,tbl"
-					actionListener="#{categoriaMB.alterar}"
+					actionListener="#{produtoMB.alterar}"
 					styleClass="ui-priority-primary float-right" />
 			</div>
 			<p:dataTable id="tbl" var="retorno"
-				value="#{categoriaMB.getCategorias()}"
+				value="#{produtoMB.getProdutos()}"
 				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 				paginator="true" rows="5" style="margin-bottom:20px">
 
@@ -36,27 +36,45 @@
 					<f:facet name="header">
 						<h:outputText value="Id" />
 					</f:facet>
-					<h:outputText value="#{retorno.getID()}" styleClass="ml-3" />
+					<h:outputText value="#{retorno.getID()}" styleClass="ml-2" />
 				</p:column>
 
-				<p:column colspan="8">
+				<p:column colspan="4">
 					<f:facet name="header">
-						<h:outputText value="Nome da Categoria" />
+						<h:outputText value="Nome do Produto" />
 					</f:facet>
-					<h:inputText value="#{retorno.nome}" class="form-control" />
+					<h:inputText value="#{retorno.nomeProduto}" class="form-control" maxlength="70" size="70"/>
+				</p:column>
+
+				<p:column>
+					<f:facet name="header" colspan="2">
+						<h:outputText value="Codigo do Produto" />
+					</f:facet>
+					<h:inputText value="#{retorno.codigoProduto}" readonly="true"
+						class="form-control" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header" colspan="2">
+						<h:outputText value="Porcao Produto" />
+					</f:facet>
+					<input value="#{retorno.porcaoProduto}"
+						class="form-control porcaomask" type="number" max="999.999" min="0.001" maxlength="8" size="8" step="0.001" readonly="readonly"/>
 				</p:column>
 
 				<p:column colspan="1">
 					<f:facet name="header">
 						<h:outputText value="Ações" />
 					</f:facet>
+					<p:button styleClass="btn btn-success"
+						href="Produto-ca.xhtml?id=#{retorno.getID()}" icon="fa fa-pencil" title="View">
+					</p:button>
 					<p:commandButton styleClass="btn btn-danger" update="tbl"
-						actionListener="#{categoriaMB.excluir}"
-						onclick="startLoad()"
-						oncomplete="endLoad()" icon="fa fa-trash"
-						title="View">
+						actionListener="#{produtoMB.excluir}" onclick="startLoad()"
+						oncomplete="endLoad()" icon="fa fa-trash" title="View">
 						<f:param value="#{retorno.getID()}" name="id" />
 					</p:commandButton>
+					
 				</p:column>
 			</p:dataTable>
 

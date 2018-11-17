@@ -22,131 +22,133 @@ public class Fornecedor extends GenericTable<Fornecedor> {
 	private int id_fornecedor;
 
 	@Column(name = "nome_fornecedor")
-	private String nome_fornecedor;
+	private String nomeFornecedor;
 
 	@Column(name = "contato_fornecedor", length = 16)
-	private String contato_fornecedor;
+	private String contatoFornecedor;
 
 	@Column(name = "nomeContato_fornecedor", length = 100)
-	private String nomeContato_fornecedor;
+	private String nomeContatoFornecedor;
 
 	@Column(name = "nomeFantasia_fornecedor")
-	private String nomeFantasia_fornecedor;
+	private String nomeFantasiaFornecedor;
 
 	@Column(name = "email_fornecedor", length = 100)
-	private String email_fornecedor;
+	private String emailFornecedor;
 
 	@Column(name = "rua_fornecedor", length = 100)
-	private String rua_fornecedor;
+	private String ruaFornecedor;
 
 	@Column(name = "numero_fornecedor", length = 5)
-	private int numero_fornecedor;
+	private int numeroFornecedor;
 
 	@Column(name = "complemento_fornecedor", length = 10)
-	private String complemento_fornecedor;
+	private String complementoFornecedor;
 
 	@Column(name = "bairro_fornecedor", length = 80)
-	private String bairro_fornecedor;
+	private String bairroFornecedor;
 
-	@OneToMany(mappedBy = "id_compra", cascade = CascadeType.ALL)
-	private Set<Compras> sfComprases;
+//	@OneToMany(mappedBy = "id_compra", cascade = CascadeType.ALL)
+//	private Set<Compras> sfComprases;
 
-	public Fornecedor(String nomeFornecedor) {
-		this.nome_fornecedor = nomeFornecedor;
+	public Fornecedor() {
+		// TODO Auto-generated constructor stub
 	}
 
-	public Fornecedor(String nomeFornecedor, String contatoFornecedor, String nomeContatoFornecedor,
+	public Fornecedor(int id_fornecedor, String nomeFornecedor, String contatoFornecedor, String nomeContatoFornecedor,
 			String nomeFantasiaFornecedor, String emailFornecedor, String ruaFornecedor, int numeroFornecedor,
-			String bairroFornecedor, String complementoFornecedor) {
-		this.nome_fornecedor = nomeFornecedor;
-		this.contato_fornecedor = contatoFornecedor;
-		this.nomeContato_fornecedor = nomeContatoFornecedor;
-		this.nomeFantasia_fornecedor = nomeFantasiaFornecedor;
-		this.email_fornecedor = emailFornecedor;
-		this.rua_fornecedor = ruaFornecedor;
-		this.numero_fornecedor = numeroFornecedor;
-		this.complemento_fornecedor = complementoFornecedor;
-		this.bairro_fornecedor = bairroFornecedor;
+			String complementoFornecedor, String bairroFornecedor) {
+		super();
+		this.id_fornecedor = id_fornecedor;
+		this.nomeFornecedor = nomeFornecedor;
+		this.contatoFornecedor = contatoFornecedor;
+		this.nomeContatoFornecedor = nomeContatoFornecedor;
+		this.nomeFantasiaFornecedor = nomeFantasiaFornecedor;
+		this.emailFornecedor = emailFornecedor;
+		this.ruaFornecedor = ruaFornecedor;
+		this.numeroFornecedor = numeroFornecedor;
+		this.complementoFornecedor = complementoFornecedor;
+		this.bairroFornecedor = bairroFornecedor;
+	}
+
+	public int getId_fornecedor() {
+		return id_fornecedor;
+	}
+
+	public void setId_fornecedor(int id_fornecedor) {
+		this.id_fornecedor = id_fornecedor;
 	}
 
 	public String getNomeFornecedor() {
-		return this.nome_fornecedor;
+		return nomeFornecedor;
 	}
 
 	public void setNomeFornecedor(String nomeFornecedor) {
-		this.nome_fornecedor = nomeFornecedor;
+		this.nomeFornecedor = nomeFornecedor;
 	}
 
 	public String getContatoFornecedor() {
-		return this.contato_fornecedor;
+		return contatoFornecedor;
 	}
 
 	public void setContatoFornecedor(String contatoFornecedor) {
-		this.contato_fornecedor = contatoFornecedor;
+		this.contatoFornecedor = contatoFornecedor;
 	}
 
 	public String getNomeContatoFornecedor() {
-		return this.nomeContato_fornecedor;
+		return nomeContatoFornecedor;
 	}
 
 	public void setNomeContatoFornecedor(String nomeContatoFornecedor) {
-		this.nomeContato_fornecedor = nomeContatoFornecedor;
+		this.nomeContatoFornecedor = nomeContatoFornecedor;
 	}
 
 	public String getNomeFantasiaFornecedor() {
-		return this.nomeFantasia_fornecedor;
+		return nomeFantasiaFornecedor;
 	}
 
 	public void setNomeFantasiaFornecedor(String nomeFantasiaFornecedor) {
-		this.nomeFantasia_fornecedor = nomeFantasiaFornecedor;
+		this.nomeFantasiaFornecedor = nomeFantasiaFornecedor;
 	}
 
 	public String getEmailFornecedor() {
-		return this.email_fornecedor;
+		return emailFornecedor;
 	}
 
 	public void setEmailFornecedor(String emailFornecedor) {
-		this.email_fornecedor = emailFornecedor;
+		this.emailFornecedor = emailFornecedor;
 	}
 
 	public String getRuaFornecedor() {
-		return this.rua_fornecedor;
+		return ruaFornecedor;
 	}
 
 	public void setRuaFornecedor(String ruaFornecedor) {
-		this.rua_fornecedor = ruaFornecedor;
-	}
-
-	public String getComplementoFornecedor() {
-		return complemento_fornecedor;
-	}
-
-	public void setComplementoFornecedor(String complemento_fornecedor) {
-		this.complemento_fornecedor = complemento_fornecedor;
+		this.ruaFornecedor = ruaFornecedor;
 	}
 
 	public int getNumeroFornecedor() {
-		return this.numero_fornecedor;
+		return numeroFornecedor;
 	}
 
 	public void setNumeroFornecedor(int numeroFornecedor) {
-		this.numero_fornecedor = numeroFornecedor;
+		this.numeroFornecedor = numeroFornecedor;
+	}
+
+	public String getComplementoFornecedor() {
+		return complementoFornecedor;
+	}
+
+	public void setComplementoFornecedor(String complementoFornecedor) {
+		this.complementoFornecedor = complementoFornecedor;
 	}
 
 	public String getBairroFornecedor() {
-		return this.bairro_fornecedor;
+		return bairroFornecedor;
 	}
 
 	public void setBairroFornecedor(String bairroFornecedor) {
-		this.bairro_fornecedor = bairroFornecedor;
-	}
-
-	public Set<?> getSfComprases() {
-		return this.sfComprases;
-	}
-
-	public void setSfComprases(Set<Compras> sfComprases) {
-		this.sfComprases = sfComprases;
+		this.bairroFornecedor = bairroFornecedor;
 	}
 
 	@Override
@@ -160,4 +162,13 @@ public class Fornecedor extends GenericTable<Fornecedor> {
 		return this;
 	}
 
+	@Override
+	public String toString() {
+		return "Fornecedor [id_fornecedor=" + id_fornecedor + ", nomeFornecedor=" + nomeFornecedor
+				+ ", contatoFornecedor=" + contatoFornecedor + ", nomeContatoFornecedor=" + nomeContatoFornecedor
+				+ ", nomeFantasiaFornecedor=" + nomeFantasiaFornecedor + ", emailFornecedor=" + emailFornecedor
+				+ ", ruaFornecedor=" + ruaFornecedor + ", numeroFornecedor=" + numeroFornecedor
+				+ ", complementoFornecedor=" + complementoFornecedor + ", bairroFornecedor=" + bairroFornecedor + "]";
+	}	
+	
 }
