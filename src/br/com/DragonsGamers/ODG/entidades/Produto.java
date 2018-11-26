@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.com.DragonsGamers.ODG.util.GenericTable;
@@ -27,6 +29,14 @@ public class Produto extends GenericTable<Produto> {
 	@Column(name = "porcao_produto", precision = 3,length=4)
 	public double porcaoProduto;
 
+	@ManyToOne
+	@JoinColumn(name="id_categoria")
+	public Categoria categoria;
+	
+	@ManyToOne
+	@JoinColumn(name="id_marca")
+	public Marca marca;
+	
 //	private SfCompras SfCompra;
 //	private SfFornecedor SfFornecedor;
 //	private SfProdutos SfProduto;
@@ -71,6 +81,22 @@ public class Produto extends GenericTable<Produto> {
 	public void setPorcaoProduto(double porcaoProduto) {
 		this.porcaoProduto = porcaoProduto;
 //		return this;
+	}
+	
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	
+	public Marca getMarca() {
+		return marca;
+	}
+
+	public void setMarca(Marca marca) {
+		this.marca = marca;
 	}
 
 	@Override

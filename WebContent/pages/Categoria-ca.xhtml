@@ -20,12 +20,12 @@
 
 	<div class="container">
 
-		<h:form class="mt-5">
+		<h:form class="mt-5" id="formulario">
 			<p:growl id="growl" life="1000" />
 			
 			<p:tab id="personal" title="Personal">
 				<p:panel header="Personal Details">
-					<p:messages />
+
 					<div class="row">
 						<div class="col-6">
 							<br />
@@ -35,14 +35,14 @@
 						</div>
 						<div class="col-6">
 							<p:column>
-								<i class="fa fa-ticket fa-5x" aria-hidden="true"></i>
+								<i class="fa fa-ticket fa-5x"></i>
 								<br /><br />
 							</p:column>
 						</div>
 						
 					</div>
 					<div class="float-right">
-						<p:commandButton value="Gravar" update="growl"
+						<p:commandButton value="Gravar" update="growl, formulario"
 							actionListener="#{categoriaMB.gravar}"
 							styleClass="ui-priority-primary" />
 					</div>

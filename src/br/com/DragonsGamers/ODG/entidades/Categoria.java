@@ -1,9 +1,14 @@
 package br.com.DragonsGamers.ODG.entidades;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.DragonsGamers.ODG.util.GenericTable;
@@ -19,6 +24,9 @@ public class Categoria extends GenericTable<Categoria> {
 
 	@Column(name = "nome_categoria")
 	public String nome;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "categoria")
+	public Set<Produto> produto;
 
 	public Categoria() {
 	}

@@ -1,8 +1,6 @@
 package br.com.DragonsGamers.ODG.controle;
 
-import java.io.Console;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -10,8 +8,6 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.servlet.http.HttpServletRequest;
-
-import com.mysql.jdbc.SocketMetadata.Helper;
 
 import br.com.DragonsGamers.ODG.dao.GenericDAO;
 import br.com.DragonsGamers.ODG.entidades.Fornecedor;

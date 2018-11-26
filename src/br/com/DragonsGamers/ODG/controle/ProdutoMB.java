@@ -1,14 +1,19 @@
 package br.com.DragonsGamers.ODG.controle;
 
+import java.util.ArrayList;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpServletRequest;
 
 import br.com.DragonsGamers.ODG.dao.GenericDAO;
+import br.com.DragonsGamers.ODG.entidades.Categoria;
+import br.com.DragonsGamers.ODG.entidades.Marca;
 import br.com.DragonsGamers.ODG.entidades.Produto;
 import br.com.DragonsGamers.ODG.util.Helpers;
 
@@ -18,6 +23,8 @@ public class ProdutoMB {
 
 	public Produto produto = new Produto();
 	public List<Produto> produtos;
+	public List<Categoria> categorias;
+	public List<Marca> marcas;
 	public GenericDAO<Produto> DAO;
 	public boolean editpage = false;
 
@@ -26,7 +33,14 @@ public class ProdutoMB {
 		HttpServletRequest req = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
 				.getRequest();
 		this.DAO = new GenericDAO<Produto>(Produto.class);
+		
+		GenericDAO<Categoria> daoc = new GenericDAO<Categoria>(Categoria.class);
+		categorias = daoc.recuperarTodos();
 
+		GenericDAO<Marca> daom = new GenericDAO<Marca>(Marca.class);
+		marcas = daom.recuperarTodos();
+		
+		
 		try {
 
 			int parametro = Integer.valueOf(req.getParameter("id"));
@@ -56,6 +70,13 @@ public class ProdutoMB {
 
 		return a.getRequestURI();
 	}
+	
+	public void request() {
+		FacesContext ctx = FacesContext.getCurrentInstance();
+		HttpServletRequest a = (HttpServletRequest) ctx.getExternalContext().getRequest();
+		
+		System.out.println(a.getAttributeNames());
+	}
 
 	public Object excluir() {
 		HttpServletRequest req = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
@@ -70,6 +91,7 @@ public class ProdutoMB {
 
 	public void gravar(ActionEvent actionEvent) {
 		String status;
+		
 		if (editpage) {
 			DAO.update(produto);
 			status = "atualizado";
@@ -107,4 +129,27 @@ public class ProdutoMB {
 		DAO = dAO;
 	}
 
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
+	}
+
+	public  List<SelectItem> getMarcas() {
+		List<SelectItem> lista = new ArrayList<SelectItem>();
+		
+		for (Marca m : marcas) {
+			lista.add(new SelectItem(m.getID(), m.getNomeMarca()));
+		}
+		
+		return lista;
+	}
+
+	public void setMarcas(List<Marca> marcas) {
+		this.marcas = marcas;
+	}
+	
+	
 }

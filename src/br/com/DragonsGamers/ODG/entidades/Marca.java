@@ -1,9 +1,14 @@
 package br.com.DragonsGamers.ODG.entidades;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.DragonsGamers.ODG.util.GenericTable;
@@ -15,10 +20,13 @@ public class Marca extends GenericTable<Marca> {
 	@Id
 	@GeneratedValue
 	@Column(name = "id_marca")
-	private Integer id_marca;
+	private Integer idMarca;
 
 	@Column(name = "nome_marca", length = 50)
 	private String nomeMarca;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "marca")
+	public Set<Produto> produto;
 
 	public Marca() {
 	}
@@ -40,20 +48,20 @@ public class Marca extends GenericTable<Marca> {
 
 	@Override
 	public int getID() {
-		return this.id_marca;
+		return this.idMarca;
 	}
 
 	@Override
 	public Marca setID(int ID) {
-		this.id_marca = ID;
+		this.idMarca = ID;
 		return this;
 	}
 
 
-	@Override
-	public String toString() {
-		return "Marca [id_marca=" + id_marca + ", nomeMarca=" + nomeMarca + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Marca [id_marca=" + id_marca + ", nomeMarca=" + nomeMarca + "]";
+//	}
 
 	
 	

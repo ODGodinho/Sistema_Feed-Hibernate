@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import br.com.DragonsGamers.ODG.util.GenericTable;
 import br.com.DragonsGamers.ODG.util.HibernateUtil;
@@ -40,7 +41,7 @@ public class GenericDAO<T extends GenericTable<?>> implements DAOs<T> {
 	@Override
 	public List<T> recuperarTodos() {
 		s = HibernateUtil.getSession();
-		List<T> results = s.createQuery("FROM " + c.getName(),c).list();
+		List<T> results = s.createQuery("FROM " + c.getName(), c).list();
 		finalizarOperacao();
 		return results;
 	}
@@ -51,6 +52,13 @@ public class GenericDAO<T extends GenericTable<?>> implements DAOs<T> {
 		T r = s.get(c, id);
 		finalizarOperacao();
 		return r;
+	}
+
+	public List<T> recuperar(String Campo, String Value) {
+		s = HibernateUtil.getSession();
+		Query<T> r = s.createQuery("FROM " + c.getName() + " WHERE " + Campo + " = :campo", c).setParameter("campo",
+				Value);
+		return r.list();
 	}
 
 	@Override

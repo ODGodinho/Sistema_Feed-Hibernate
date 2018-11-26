@@ -1,15 +1,15 @@
 package br.com.DragonsGamers.ODG.util;
 
 import br.com.DragonsGamers.ODG.dao.GenericDAO;
-import br.com.DragonsGamers.ODG.entidades.Categoria;
-import br.com.DragonsGamers.ODG.entidades.Fornecedor;
+import br.com.DragonsGamers.ODG.entidades.Marca;
 
 public class Testes {
 
 	public static void main(String[] args) {
-		GenericDAO<Fornecedor> dao = new GenericDAO<Fornecedor>(Fornecedor.class);
+		GenericDAO<Marca> b = new GenericDAO<Marca>(Marca.class);
 		
-		System.out.println(dao.recuperar(29));
+		
+		System.out.println(b.recuperar("nome_marca", "kibon").get(0));
 	}
 	
 }

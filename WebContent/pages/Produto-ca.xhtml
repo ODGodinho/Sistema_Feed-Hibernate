@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<h:head>
+	<link type="text/css" rel="stylesheet"
+		href="../style/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link type="text/css" rel="stylesheet" href="../style/estilo.css" />
+</h:head>
+<h:body>
+
+	<ui:include src="/pages/includes/menu.xhtml" />
+
+
+	<div class="container">
+
+		<h:form class="mt-5" id="formulario">
+			<p:growl id="growl" life="3000" />
+
+			<p:tab id="personal" title="Personal">
+				<p:panel header="Personal Details">
+					<div class="float-right">
+						<i class="fa fa-cart-plus fa-5x mt-4" aria-hidden="true"></i> <br />
+					</div>
+					<div class="row">
+						<div class="col-6">
+							<h:outputText value="Nome do Produto" />
+							<span class='text-danger'>*</span>
+							<p:inputText value="#{produtoMB.produto.nomeProduto}"
+								required="true" label="Nome do Produto"
+								styleClass="form-control" maxlength="50" size="50" />
+						</div>
+						<div class="col-6">
+							<h:outputText value="Codigo do Produto " />
+							<span class='text-danger'>*</span>
+							<p:inputText value="#{produtoMB.produto.codigoProduto}"
+								required="true" label="Codigo do Produto"
+								styleClass="form-control" maxlength="50" size="50" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4">
+							<h:outputText value="Porção do Produto " />
+							<span class='text-danger'>*</span>
+							<div class="input-group mb-3">
+								<p:inputText value="#{produtoMB.produto.porcaoProduto}"
+									required="true" label="Porção do Produto"
+									styleClass="form-control" maxlength="50" size="50" />
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="basic-addon1">Kg</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-4">
+							<h:outputText value="Categoria do produto " /> <span class='text-danger'>*</span>
+							<h:selectOneMenu required="required" id="MarcasProdutoID" converter="ConvertCategoria" styleClass="form-control" filter="true" value="#{produtoMB.produto.categoria}" >
+							    <f:selectItems value="#{produtoMB.getCategorias()}" var="liststatus" itemValue="#{liststatus}" itemLabel="#{liststatus.nome}" />
+							</h:selectOneMenu>
+						</div>
+						<div class="col-4">
+							<h:outputText value="Marca do produto " /> <span class='text-danger'>*</span>
+							<h:selectOneMenu required="required" id="stlocal" converter="ConvertMarca" styleClass="form-control" filter="true" value="#{produtoMB.produto.marca}" >
+							    <f:selectItems value="#{produtoMB.marcas}" var="liststatus" itemValue="#{liststatus}" itemLabel="#{liststatus.nomeMarca}" />
+							</h:selectOneMenu>
+						</div>
+					</div>
+					
+					<div class="float-right">
+						<p:commandButton value="Gravar" update="growl,formulario"
+							onclick="startLoad()"
+							onsuccess="setTimeout(()=>location.href='Produtos.xhtml',2000)"
+							actionListener="#{produtoMB.gravar}"
+							styleClass="ui-priority-primary" />
+					</div>
+				</p:panel>
+
+			</p:tab>
+
+		</h:form>
+	</div>
+
+	<ui:include src="/pages/includes/scripts.xhtml" />
+</h:body>
+</html>
